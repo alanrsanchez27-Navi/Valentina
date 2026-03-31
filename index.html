@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velen, ¿me perdonas?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-decorations">
+      <div class="heart" style="top: 10%; left: 20%">❤️</div>
+      <div class="heart" style="top: 70%; left: 80%">💖</div>
+      <div class="heart" style="top: 20%; right: 15%">✨</div>
+      <div class="heart" style="bottom: 15%; left: 10%">💕</div>
+    </div>
+
+    <div class="wrapper">
+      <div class="container screen is-visible" id="mainContainer">
+        <div class="img-container">
+          <lottie-player
+            id="mainAnimation"
+            src="https://lottie.host/d17a4cb2-2ff0-4efb-bd94-5b3fca13cb32/tKxTnbu5ys.json"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+
+        <h1 id="questionText">
+          ¿Me perdonas por hacerte doler en el sueño y en la vida real?
+        </h1>
+
+        <div class="buttons-zone">
+          <div class="buttons" id="buttonsContainer">
+            <button id="yesBtn" class="btn yes-btn">Sí</button>
+            <button id="noBtn" class="btn no-btn">No</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container screen success-container" id="successContainer">
+        <h1 class="success-title">
+          Gracias, te amo.<br />
+          sabía que me ibas a perdonar ❤️ (aunque digas que no)
+        </h1>
+
+        <div class="img-container">
+          <lottie-player
+            id="successAnimation"
+            src="URL_GATITO_FELIZ"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+
+        <p class="success-message">
+          te adelanto un regalo y te regalo una Kiki animada por mi.Ahora
+          cogemos? ✨
+        </p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,343 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: #fff0f5;
+  --bg-2: #fff7d6;
+  --bg-3: #ffd6df;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --text: #4a4a4a;
+  --pink: #ff85a2;
+  --pink-soft: #ffb6c1;
+  --pink-hover: #ff99a8;
+  --yellow-soft: #fffacd;
+  --yellow-hover: #fff1ad;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--bg-1) 0%,
+    var(--bg-2) 50%,
+    var(--bg-3) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: var(--text);
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.background-decorations {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatHeart 6s ease-in-out infinite alternate;
+  opacity: 0.65;
+}
+
+.heart:nth-child(2) {
+  animation-duration: 4s;
+  animation-delay: 1s;
+}
+.heart:nth-child(3) {
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+.heart:nth-child(4) {
+  animation-duration: 5s;
+  animation-delay: 1.5s;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-28px) scale(1.08) rotate(10deg);
+  }
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  padding: 18px;
+}
+
+.container {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 28px 22px 30px;
+  box-shadow: 0 10px 30px rgba(255, 182, 193, 0.35);
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.screen {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px) scale(0.97);
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    visibility 0.45s ease;
+  position: absolute;
+  inset: 0;
+}
+
+.screen.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  position: relative;
+}
+
+.img-container {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px;
+}
+
+#mainAnimation,
+#successAnimation {
+  width: min(72vw, 250px);
+  height: min(72vw, 250px);
+  animation: floatAnim 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnim {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 1.95rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--pink);
+  line-height: 1.25;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.success-title {
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  margin-bottom: 10px;
+}
+
+.success-message {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #6a5a5f;
+  margin-top: 8px;
+}
+
+.buttons-zone {
+  position: relative;
+  width: 100%;
+  min-height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  min-height: 150px;
+}
+
+.btn {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  transition:
+    transform 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease,
+    font-size 0.28s ease,
+    left 0.22s ease,
+    top 0.22s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.yes-btn {
+  background: var(--pink-soft);
+  color: white;
+  box-shadow: 0 6px 20px rgba(255, 182, 193, 0.6);
+  left: 50%;
+  top: 50%;
+  transform: translate(-115%, -50%) scale(1);
+  z-index: 2;
+}
+
+.yes-btn:hover {
+  background: var(--pink-hover);
+}
+
+.no-btn {
+  background: var(--yellow-soft);
+  color: var(--pink);
+  box-shadow: 0 6px 20px rgba(255, 250, 205, 0.6);
+  left: 50%;
+  top: 50%;
+  transform: translate(15%, -50%);
+  z-index: 3;
+}
+
+.no-btn:hover {
+  background: var(--yellow-hover);
+}
+
+.no-btn.shiver {
+  animation: shiver 0.22s linear 2;
+}
+
+@keyframes shiver {
+  0% {
+    transform: translate(15%, -50%) translateX(0);
+  }
+  25% {
+    transform: translate(15%, -50%) translateX(-4px) rotate(-2deg);
+  }
+  50% {
+    transform: translate(15%, -50%) translateX(4px) rotate(2deg);
+  }
+  75% {
+    transform: translate(15%, -50%) translateX(-3px) rotate(-1deg);
+  }
+  100% {
+    transform: translate(15%, -50%) translateX(0);
+  }
+}
+
+.bump {
+  animation: bump 0.28s ease;
+}
+
+@keyframes bump {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.06;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.fade-swap {
+  animation: fadeSwap 0.3s ease;
+}
+
+@keyframes fadeSwap {
+  0% {
+    opacity: 0.5;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heart-confetti {
+  position: fixed;
+  top: -10vh;
+  font-size: 2rem;
+  z-index: 999;
+  animation: fall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 14px;
+  }
+
+  .container {
+    padding: 24px 16px 26px;
+    border-radius: 24px;
+  }
+
+  .img-container {
+    min-height: 190px;
+  }
+
+  #mainAnimation,
+  #successAnimation {
+    width: min(68vw, 215px);
+    height: min(68vw, 215px);
+  }
+
+  .buttons-zone {
+    min-height: 185px;
+  }
+
+  .buttons {
+    min-height: 165px;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    font-size: 1rem;
+  }
+}
